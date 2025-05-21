@@ -1,97 +1,72 @@
-# AI Prompt Processor
+# Creative Domestic Soundscapes (Unity-Integrated Version)
 
-A server-side application that connects to an AI model API, processes prompts from Markdown files, and saves responses as JSON files.
+For the Creativity Computational Design class, this project generates immersive domestic soundscapes using a combination of AI-driven generation, sound retrieval, and Unity-based spatialization.
 
-## Features
+## Project Overview
 
-- Connect to OpenRouter AI API with customizable model selection
-- Read prompts from Markdown files
-- Process prompts through the AI API
-- Save AI responses to JSON files
-- Express server with RESTful endpoints
-- CLI tool for direct file processing
+This project automates the creation of interactive soundscapes for virtual domestic environments. It leverages Large Language Models (LLMs) to generate creative room and sound descriptions, then uses the Freesound API to fetch real-world audio samples that match those descriptions. The resulting configuration and audio files are imported into Unity, where a custom script spatializes and assigns the sounds to objects in a 3D scene.
 
-## Installation
+**Key Technologies:**
 
-1. Clone the repository
-2. Install dependencies:
+- **LLMs (Large Language Models):** Used to generate creative prompts and structure for rooms and their associated sounds.
+- **Freesound API:** Retrieves real audio samples based on LLM-generated prompts.
+- **Node.js/Express:** Orchestrates the pipeline, manages authentication, and serves the API.
+- **Unity:** Loads the generated configuration and audio, spatializes sounds, and provides an interactive environment.
 
-```bash
-npm install
-```
+___
 
-3. Create a `.env` file in the root directory with your API credentials:
+## Project Structure
 
-```
-OPENROUTER_API_KEY=your_api_key_here
-AI_MODEL=microsoft/phi-4-reasoning-plus:free
-PORT=3000
-SITE_URL=http://localhost:3000
-SITE_NAME=AI Prompt Processor
-```
+- **PIPELINE/server.js**: Main pipeline logic, now triggered from within Unity.
+- **Modules/**: Contains the core logic for room generation, audio generation, Freesound API integration, and Unity audio processing.
+- **Unity/**: Unity project folder. Generated audio configuration (`audio.json`) is placed in `Unity/Assets/StreamingAssets/Responses/`.
 
-## Usage
+___
 
-### Option 1: Run as an Express Server
+## How the Pipeline Works
 
-Start the server:
+1. **Room Generation:**An LLM generates a creative description and structure for a virtual room (e.g., kitchen, living room), including objects and their properties.
+2. **Audio Generation:**The LLM suggests suitable sounds for each object or area in the room. These prompts are used to search the Freesound database for matching audio samples.
+3. **Unity Audio Processing:**
+   The pipeline downloads the selected audio files and generates a configuration file (`audio.json`) that maps sounds to objects. Unity loads this configuration and spatializes the sounds in the 3D scene.
 
-```bash
-npm start
-```
+**In this version, the entire pipeline is triggered from inside Unity by pressing a button in the main scene.**
+___
 
-Then you can use the API endpoints:
+## Setup Instructions
 
-#### Process a prompt file
+1. **Install dependencies**In the `PIPELINE` folder, run:
 
-```bash
-curl -X POST http://localhost:3000/process-prompt \
-  -H "Content-Type: application/json" \
-  -d '{"promptFile": "path/to/your/prompt.md", "outputFile": "output.json"}'
-```
+   ```
+   npm install
+   ```
+   ___
 
-#### Process a file directly with default output naming
+2. **Set up environment variables**Create a `.env` file in the `PIPELINE` folder with:
 
-```bash
-curl -X POST http://localhost:3000/process-file \
-  -H "Content-Type: application/json" \
-  -d '{"inputFile": "path/to/your/prompt.md"}'
-```
+   ```
+   FREESOUND_CLIENT_ID=your_client_id 
+   FREESOUND_CLIENT_SECRET=your_client_secret 
+   SESSION_SECRET=your_session_secret 
+   PORT=3000
+   ```
+   ___
 
-### Option 2: Run as a CLI Tool
+3. **Authenticate with Freesound**Open this URL in your browser (replace `YOUR_CLIENT_ID`):
 
-Process a prompt file directly:
+   [https://freesound.org/apiv2/oauth2/authorize/?client_id=YOUR_CLIENT_ID&amp;response_type=code&amp;state=xyz](https://freesound.org/apiv2/oauth2/authorize/?client_id=YOUR_CLIENT_ID&response_type=code&state=xyz)
 
-```bash
-node process-prompt.js path/to/your/prompt.md [optional/output/path.json]
-```
+   Follow the login flow to authorize the app.
 
-If no output path is specified, it will create a file with the same name as the input file but with "\_response.json" appended.
+   ___
 
-## Example Files
+4. **Open Unity and Run the Pipeline**
 
-- `example-prompt.md` - An example prompt file that requests product recommendations in JSON format
-- You can test the application with this file:
+   - Open the `Unity` folder as a Unity project in the Unity Hub or Unity Editor.
+   - Open the main scene (e.g., `RoomGenerator.unity`) in the Unity Editor.
+   - Press Play.
+   - In the scene, you will see a button labeled **"Generate Soundscape"** (or similar).
+   - Click the button. This will automatically run the entire pipeline (the logic from `server.js`), including room and audio generation, Freesound downloads, and Unity audio processing.
+   - When the process finishes, the generated room and soundscape will be displayed and spatialized in Unity automatically.
 
-```bash
-node process-prompt.js example-prompt.md
-```
-
-## File Structure
-
-- `server.js` - Express server implementation
-- `process-prompt.js` - CLI tool for direct file processing
-- `.env` - Environment variables configuration
-- `package.json` - Project dependencies and scripts
-- `example-prompt.md` - Example prompt file
-
-## Dependencies
-
-- express - Web server framework
-- dotenv - Environment variable management
-- node-fetch - HTTP request client
-- nodemon (dev) - Auto-restart during development
-
-## License
-
-MIT
+___
