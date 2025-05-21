@@ -1,0 +1,157 @@
+{
+  "environment": {
+    "name": "Bedroom of a Marine Biologist",
+    "width": 4.5,
+    "depth": 4.0,
+    "wall_thickness": 0.2,
+    "shapes": [
+      {
+        "name": "Floor",
+        "shape": "Cube",
+        "size": { "x": 4.5, "y": 0.1, "z": 4.0 },
+        "position": { "x": 0, "y": -0.05, "z": 0 },
+        "color": "#8B4513"
+      },
+      {
+        "name": "Wall_North",
+        "shape": "Cube",
+        "size": { "x": 4.5, "y": 2.7, "z": 0.2 },
+        "position": { "x": 0, "y": 1.35, "z": -2.0 },
+        "color": "#F5F5DC"
+      },
+      {
+        "name": "Wall_South",
+        "shape": "Cube",
+        "size": { "x": 4.5, "y": 2.7, "z": 0.2 },
+        "position": { "x": 0, "y": 1.35, "z": 2.0 },
+        "color": "#F5F5DC"
+      },
+      {
+        "name": "Wall_West",
+        "shape": "Cube",
+        "size": { "x": 0.2, "y": 2.7, "z": 4.0 },
+        "position": { "x": -2.25, "y": 1.35, "z": 0 },
+        "color": "#F5F5DC"
+      },
+      {
+        "name": "Wall_East",
+        "shape": "Cube",
+        "size": { "x": 0.2, "y": 2.7, "z": 4.0 },
+        "position": { "x": 2.25, "y": 1.35, "z": 0 },
+        "color": "#F5F5DC"
+      },
+      {
+        "name": "Window1",
+        "shape": "Cube",
+        "size": { "x": 1.2, "y": 1.2, "z": 0.27 },
+        "position": { "x": -0.5, "y": 1.5, "z": -2.0 },
+        "color": "#87CEEB"
+      },
+      {
+        "name": "Door1",
+        "shape": "Cube",
+        "size": { "x": 0.9, "y": 2.1, "z": 0.27 },
+        "position": { "x": 1.0, "y": 1.05, "z": 2.0 },
+        "color": "#654321"
+      }
+    ]
+  },
+  "objects": [
+    {
+      "name": "Bed",
+      "shape": "Cube",
+      "size": { "x": 1.6, "y": 0.5, "z": 2.0 },
+      "position": { "x": -1.5, "y": 0.25, "z": 0.5 },
+      "rotation": { "x": 0, "y": 0, "z": 0 },
+      "color": "#FFDAB9"
+    },
+    {
+      "name": "Desk",
+      "shape": "Cube",
+      "size": { "x": 1.2, "y": 0.75, "z": 0.6 },
+      "position": { "x": 1.0, "y": 0.375, "z": -1.0 },
+      "rotation": { "x": 0, "y": 0, "z": 0 },
+      "color": "#DEB887"
+    },
+    {
+      "name": "Chair",
+      "shape": "Cube",
+      "size": { "x": 0.5, "y": 0.9, "z": 0.5 },
+      "position": { "x": 1.0, "y": 0.45, "z": -0.3 },
+      "rotation": { "x": 0, "y": 0, "z": 0 },
+      "color": "#A0522D"
+    },
+    {
+      "name": "Bookshelf",
+      "shape": "Cube",
+      "size": { "x": 1.0, "y": 2.0, "z": 0.3 },
+      "position": { "x": -2.0, "y": 1.0, "z": -1.0 },
+      "rotation": { "x": 0, "y": 0, "z": 0 },
+      "color": "#8B4513"
+    },
+    {
+      "name": "Microscope",
+      "shape": "Cylinder",
+      "size": { "x": 0.1, "y": 0.3, "z": 0.1 },
+      "position": { "x": 1.0, "y": 0.75, "z": -1.0 },
+      "rotation": { "x": 0, "y": 0, "z": 0 },
+      "color": "#000000"
+    },
+    {
+      "name": "FishTank",
+      "shape": "Cube",
+      "size": { "x": 1.0, "y": 0.6, "z": 0.4 },
+      "position": { "x": -1.0, "y": 0.3, "z": -1.5 },
+      "rotation": { "x": 0, "y": 0, "z": 0 },
+      "color": "#ADD8E6"
+    },
+    {
+      "name": "ShellDisplayCase",
+      "shape": "Cube",
+      "size": { "x": 0.8, "y": 1.2, "z": 0.2 },
+      "position": { "x": 2.0, "y": 0.6, "z": 1.5 },
+      "rotation": { "x": 0, "y": 0, "z": 0 },
+      "color": "#DAA520"
+    },
+    {
+      "name": "ModelShip",
+      "shape": "Cube",
+      "size": { "x": 0.6, "y": 0.3, "z": 0.2 },
+      "position": { "x": 2.0, "y": 1.6, "z": 1.5 },
+      "rotation": { "x": 0, "y": 0, "z": 0 },
+      "color": "#CD853F"
+    },
+    {
+      "name": "Laptop",
+      "shape": "Cube",
+      "size": { "x": 0.4, "y": 0.02, "z": 0.3 },
+      "position": { "x": 0.8, "y": 0.78, "z": -1.0 },
+      "rotation": { "x": 0, "y": 0, "z": 0 },
+      "color": "#C0C0C0"
+    },
+    {
+      "name": "DeskLamp",
+      "shape": "Cylinder",
+      "size": { "x": 0.1, "y": 0.4, "z": 0.1 },
+      "position": { "x": 1.2, "y": 0.8, "z": -1.0 },
+      "rotation": { "x": 0, "y": 0, "z": 0 },
+      "color": "#FFFF00"
+    },
+    {
+      "name": "DivingGear",
+      "shape": "Capsule",
+      "size": { "x": 0.6, "y": 0.1, "z": 0.8 },
+      "position": { "x": 0.5, "y": 0.05, "z": 1.5 },
+      "rotation": { "x": 0, "y": 0, "z": 0 },
+      "color": "#FF4500"
+    },
+    {
+      "name": "LabStool",
+      "shape": "Cylinder",
+      "size": { "x": 0.5, "y": 0.5, "z": 0.5 },
+      "position": { "x": 0.5, "y": 0.25, "z": -0.5 },
+      "rotation": { "x": 0, "y": 0, "z": 0 },
+      "color": "#708090"
+    }
+  ]
+}

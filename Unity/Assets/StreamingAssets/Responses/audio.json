@@ -1,0 +1,104 @@
+{
+  "scene": {
+    "interactions": [
+      {
+        "title": "Workbench Tool Adjustment",
+        "object": "Precision Workbench",
+        "freesound_query": "metal tools clinking precise",
+        "tags": ["mechanical", "tools", "delicate"],
+        "duration": 2.3,
+        "loop": false,
+        "volume": 0.6
+      },
+      {
+        "title": "Magnifying Lamp Switch",
+        "object": "Magnifying Lamp",
+        "freesound_query": "lamp switch click",
+        "tags": ["electric", "toggle", "small"],
+        "duration": 0.7,
+        "loop": false,
+        "volume": 0.5
+      },
+      {
+        "title": "Tool Drawer Operation",
+        "object": "Tool Cabinet",
+        "freesound_query": "metal drawer open close",
+        "tags": ["cabinet", "slide", "metallic"],
+        "duration": 3.1,
+        "loop": false,
+        "volume": 0.7
+      },
+      {
+        "title": "Mainspring Winding",
+        "object": "Mainspring Winder",
+        "freesound_query": "mechanical winding gear",
+        "tags": ["clockwork", "precision", "coiling"],
+        "duration": 4.8,
+        "loop": false,
+        "volume": 0.8
+      },
+      {
+        "title": "Lathe Operation",
+        "object": "Lathe Machine",
+        "freesound_query": "small motor whir metal",
+        "tags": ["machinery", "spinning", "workshop"],
+        "duration": 5.0,
+        "loop": false,
+        "volume": 0.9
+      },
+      {
+        "title": "Parts Sorting",
+        "object": "Parts Organizer",
+        "freesound_query": "small metal parts shaking",
+        "tags": ["tinkling", "organized", "components"],
+        "duration": 2.5,
+        "loop": false,
+        "volume": 0.6
+      },
+      {
+        "title": "Blueprint Handling",
+        "object": "Blueprint Desk",
+        "freesound_query": "paper unfold rustle",
+        "tags": ["document", "schematics", "crinkle"],
+        "duration": 1.8,
+        "loop": false,
+        "volume": 0.5
+      },
+      {
+        "title": "Clock Mechanism Inspection",
+        "object": "Antique Clock Storage",
+        "freesound_query": "mechanical clock ticking",
+        "tags": ["timepiece", "precision", "regular"],
+        "duration": 4.2,
+        "loop": false,
+        "volume": 0.7
+      },
+      {
+        "title": "Bed Adjustment",
+        "object": "Watchmaker's Bed",
+        "freesound_query": "wooden bed creak",
+        "tags": ["furniture", "subtle", "wood"],
+        "duration": 1.2,
+        "loop": false,
+        "volume": 0.6
+      },
+      {
+        "title": "Door Operation",
+        "object": "Door1",
+        "freesound_query": "wooden door creak close",
+        "tags": ["entrance", "hinges", "wood"],
+        "duration": 2.7,
+        "loop": false,
+        "volume": 0.8
+      }
+    ],
+    "background": {
+      "title": "Horology Workshop Ambience",
+      "freesound_query": "quiet workshop clock ticks",
+      "tags": ["precision", "tools", "calm"],
+      "duration": 45,
+      "loop": true,
+      "volume": 0.25
+    }
+  }
+}

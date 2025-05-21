@@ -1,0 +1,125 @@
+{
+  "soundMappings": [
+    {
+      "title": "Workbench Tool Adjustment",
+      "type": "interaction",
+      "objectName": "Precision Workbench",
+      "filename": "precision_workbench_workbench_tool_adjustment_473575.wav",
+      "duration": 1.15898,
+      "loop": false,
+      "volume": 0.7,
+      "loudness": 0.62,
+      "minVolume": 0.3
+    },
+    {
+      "title": "Magnifying Lamp Switch",
+      "type": "interaction",
+      "objectName": "Magnifying Lamp",
+      "filename": "magnifying_lamp_magnifying_lamp_switch_553935.wav",
+      "duration": 4.71365,
+      "loop": false,
+      "volume": 0.7,
+      "loudness": 0.62,
+      "minVolume": 0.3
+    },
+    {
+      "title": "Tool Drawer Operation",
+      "type": "interaction",
+      "objectName": "Tool Cabinet",
+      "filename": "tool_cabinet_tool_drawer_operation_340068.mp3",
+      "duration": 19,
+      "loop": false,
+      "volume": 0.7,
+      "loudness": 0.62,
+      "minVolume": 0.3
+    },
+    {
+      "title": "Mainspring Winding",
+      "type": "interaction",
+      "objectName": "Mainspring Winder",
+      "filename": "mainspring_winder_mainspring_winding_765158.mp3",
+      "duration": 31,
+      "loop": false,
+      "volume": 0.7,
+      "loudness": 0.62,
+      "minVolume": 0.3
+    },
+    {
+      "title": "Lathe Operation",
+      "type": "interaction",
+      "objectName": "Lathe Machine",
+      "filename": "lathe_machine_lathe_operation_765160.mp3",
+      "duration": 13,
+      "loop": false,
+      "volume": 0.7,
+      "loudness": 0.62,
+      "minVolume": 0.3
+    },
+    {
+      "title": "Parts Sorting",
+      "type": "interaction",
+      "objectName": "Parts Organizer",
+      "filename": "parts_organizer_parts_sorting_792844.mp3",
+      "duration": 9.21098,
+      "loop": false,
+      "volume": 0.7,
+      "loudness": 0.62,
+      "minVolume": 0.3
+    },
+    {
+      "title": "Blueprint Handling",
+      "type": "interaction",
+      "objectName": "Blueprint Desk",
+      "filename": "blueprint_desk_blueprint_handling_360646.mp3",
+      "duration": 3.52,
+      "loop": false,
+      "volume": 0.7,
+      "loudness": 0.62,
+      "minVolume": 0.3
+    },
+    {
+      "title": "Clock Mechanism Inspection",
+      "type": "interaction",
+      "objectName": "Antique Clock Storage",
+      "filename": "antique_clock_storage_clock_mechanism_inspection_171043.wav",
+      "duration": 121.535,
+      "loop": false,
+      "volume": 0.7,
+      "loudness": 0.62,
+      "minVolume": 0.3
+    },
+    {
+      "title": "Bed Adjustment",
+      "type": "interaction",
+      "objectName": "Watchmaker's Bed",
+      "filename": "watchmaker_s_bed_bed_adjustment_570599.wav",
+      "duration": 79.6563,
+      "loop": false,
+      "volume": 0.7,
+      "loudness": 0.62,
+      "minVolume": 0.3
+    },
+    {
+      "title": "Door Operation",
+      "type": "interaction",
+      "objectName": "Door1",
+      "filename": "door1_door_operation_799449.mp3",
+      "duration": 10.3905,
+      "loop": false,
+      "volume": 0.7,
+      "loudness": 0.62,
+      "minVolume": 0.3
+    },
+    {
+      "title": "Horology Workshop Ambience",
+      "type": "background",
+      "objectName": "Background",
+      "filename": "background_horology_workshop_ambience_433667.mp3",
+      "duration": 17.4325,
+      "loop": true,
+      "volume": 0.3,
+      "loudness": 0.62,
+      "minVolume": 0.15
+    }
+  ]
+}

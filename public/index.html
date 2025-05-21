@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Prompt Processor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow: auto;
+        }
+
+        .loading {
+            display: none;
+        }
+
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="auth-status" style="margin: 20px 0; padding: 10px; background: #f5f5f5;">
+        Checking authentication status...
+    </div>
+    <h1>AI Prompt Processor</h1>
+
+    <h2>Generation Pipeline</h2>
+    <button id="fullPipeline">Run Full Pipeline</button>
+    <div class="loading" id="pipelineLoading">Processing... (this may take several minutes)</div>
+
+    <h2>Individual Steps</h2>
+    <button id="generateRoom">1. Generate Room</button>
+    <button id="generateAudio">2. Generate Audio</button>
+    <button id="processUnity">3. Process Audio for Unity</button>
+
+    <div class="result">
+        <h3>Result:</h3>
+        <pre id="result">No result yet</pre>
+    </div>
+
+    <script>
+
+        // Check authentication status on page load
+        async function checkAuthStatus() {
+            try {
+                const response = await fetch('/api/auth/status');
+                const data = await response.json();
+
+                const authStatusEl = document.getElementById('auth-status');
+                if (authStatusEl) {
+                    if (data.authenticated) {
+                        authStatusEl.innerHTML = '<span style="color: green;">✓ Authenticated with Freesound</span> <a href="/freesound/logout">(Log out)</a>';
+                    } else {
+                        authStatusEl.innerHTML = '<span style="color: red;">✗ Not authenticated</span> <a href="/freesound/login">Log in with Freesound</a> <br><small>Required for downloading sounds</small>';
+                    }
+                }
+            } catch (error) {
+                console.error('Error checking auth status:', error);
+            }
+        }
+
+        // Handle API errors related to authentication
+        async function callApiWithAuthCheck(url, options = {}) {
+            try {
+                const response = await fetch(url, {
+                    method: options.method || 'POST',
+                    headers: { 'Content-Type': 'application/json', ...options.headers },
+                    body: options.body
+                });
+
+                const data = await response.json();
+
+                // Check if we need authentication
+                if (!response.ok && response.status === 401 && data.redirect) {
+                    alert('Authentication required. Redirecting to login...');
+                    window.location.href = data.redirect;
+                    return null;
+                }
+
+                return data;
+            } catch (error) {
+                console.error('API error:', error);
+                throw error;
+            }
+        }
+        document.getElementById('fullPipeline').addEventListener('click', async () => {
+            const loadingEl = document.getElementById('pipelineLoading');
+            loadingEl.style.display = 'block';
+            document.getElementById('result').textContent = 'Processing...';
+
+            try {
+                const response = await fetch('/api/generate/pipeline', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' }
+                });
+                const data = await response.json();
+                document.getElementById('result').textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                document.getElementById('result').textContent = 'Error: ' + error.message;
+            } finally {
+                loadingEl.style.display = 'none';
+            }
+        });
+
+        document.getElementById('generateRoom').addEventListener('click', async () => {
+            try {
+                document.getElementById('result').textContent = 'Generating room...';
+                const response = await fetch('/api/generate/room', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' }
+                });
+                const data = await response.json();
+                document.getElementById('result').textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                document.getElementById('result').textContent = 'Error: ' + error.message;
+            }
+        });
+
+        document.getElementById('generateAudio').addEventListener('click', async () => {
+            try {
+                document.getElementById('result').textContent = 'Generating audio description...';
+                const response = await fetch('/api/generate/audio', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' }
+                });
+                const data = await response.json();
+                document.getElementById('result').textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                document.getElementById('result').textContent = 'Error: ' + error.message;
+            }
+        });
+
+        document.getElementById('processUnity').addEventListener('click', async () => {
+            try {
+                document.getElementById('result').textContent = 'Processing for Unity...';
+                const data = await callApiWithAuthCheck('/api/process/unity');
+                if (data) {
+                    document.getElementById('result').textContent = JSON.stringify(data, null, 2);
+                }
+            } catch (error) {
+                document.getElementById('result').textContent = 'Error: ' + error.message;
+            }
+        });
+        window.addEventListener('DOMContentLoaded', checkAuthStatus);
+    </script>
+</body>
+
+</html>
